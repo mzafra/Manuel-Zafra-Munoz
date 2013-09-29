@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmi:id="_kLpdwCbREeO_uddS7Va5jA" name="model">
+<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xmi:id="_kLpdwCbREeO_uddS7Va5jA" name="model">
   <packagedElement xmi:type="uml:Actor" xmi:id="_la_lwCbREeO_uddS7Va5jA" name="Usuario"/>
   <packagedElement xmi:type="uml:Actor" xmi:id="_5r8WcCbREeO_uddS7Va5jA" name="Admin"/>
   <packagedElement xmi:type="uml:UseCase" xmi:id="_9mjK0CbREeO_uddS7Va5jA" name="adm. usuario"/>
@@ -9,6 +9,7 @@
   <packagedElement xmi:type="uml:UseCase" xmi:id="_DLrnUCbSEeO_uddS7Va5jA" name="CrearViaje"/>
   <packagedElement xmi:type="uml:UseCase" xmi:id="_FRhScCbSEeO_uddS7Va5jA" name="ConsultarViaje"/>
   <packagedElement xmi:type="uml:UseCase" xmi:id="_HYBE4CbSEeO_uddS7Va5jA" name="CrearLugar">
+    <extensionPoint xmi:id="_p5CKcClaEeOj1bA31bCnoQ" name="point"/>
     <include xmi:id="_MtswICbSEeO_uddS7Va5jA" addition="_DLrnUCbSEeO_uddS7Va5jA"/>
   </packagedElement>
   <packagedElement xmi:type="uml:UseCase" xmi:id="_IfgRYCbSEeO_uddS7Va5jA" name="CrarAlojamiento">
@@ -16,35 +17,53 @@
   </packagedElement>
   <packagedElement xmi:type="uml:Association" xmi:id="_KFL1wCbSEeO_uddS7Va5jA" name="A_crearviaje_usuario" memberEnd="_KFMc0CbSEeO_uddS7Va5jA _KFMc0ybSEeO_uddS7Va5jA">
     <ownedEnd xmi:id="_KFMc0CbSEeO_uddS7Va5jA" name="crearviaje" type="_DLrnUCbSEeO_uddS7Va5jA" association="_KFL1wCbSEeO_uddS7Va5jA">
-      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KFMc0SbSEeO_uddS7Va5jA" value="1"/>
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KFMc0ibSEeO_uddS7Va5jA" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KFMc0SbSEeO_uddS7Va5jA" value="1"/>
     </ownedEnd>
     <ownedEnd xmi:id="_KFMc0ybSEeO_uddS7Va5jA" name="usuario" type="_la_lwCbREeO_uddS7Va5jA" association="_KFL1wCbSEeO_uddS7Va5jA">
-      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KFMc1CbSEeO_uddS7Va5jA" value="1"/>
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KFMc1SbSEeO_uddS7Va5jA" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KFMc1CbSEeO_uddS7Va5jA" value="1"/>
     </ownedEnd>
   </packagedElement>
   <packagedElement xmi:type="uml:Association" xmi:id="_LDUR8CbSEeO_uddS7Va5jA" name="A_consultarviaje_usuario" memberEnd="_LDU5ACbSEeO_uddS7Va5jA _LDU5AybSEeO_uddS7Va5jA">
     <ownedEnd xmi:id="_LDU5ACbSEeO_uddS7Va5jA" name="consultarviaje" type="_FRhScCbSEeO_uddS7Va5jA" association="_LDUR8CbSEeO_uddS7Va5jA">
-      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_LDU5ASbSEeO_uddS7Va5jA" value="1"/>
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_LDU5AibSEeO_uddS7Va5jA" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_LDU5ASbSEeO_uddS7Va5jA" value="1"/>
     </ownedEnd>
     <ownedEnd xmi:id="_LDU5AybSEeO_uddS7Va5jA" name="usuario" type="_la_lwCbREeO_uddS7Va5jA" association="_LDUR8CbSEeO_uddS7Va5jA">
-      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_LDU5BCbSEeO_uddS7Va5jA" value="1"/>
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_LDU5BSbSEeO_uddS7Va5jA" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_LDU5BCbSEeO_uddS7Va5jA" value="1"/>
     </ownedEnd>
   </packagedElement>
   <packagedElement xmi:type="uml:Association" xmi:id="_N4qucCbSEeO_uddS7Va5jA" name="A_adm. usuario_usuario" memberEnd="_N4qucSbSEeO_uddS7Va5jA _N4qudCbSEeO_uddS7Va5jA">
     <ownedEnd xmi:id="_N4qucSbSEeO_uddS7Va5jA" name="adm. usuario" type="_9mjK0CbREeO_uddS7Va5jA" association="_N4qucCbSEeO_uddS7Va5jA">
-      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_N4qucibSEeO_uddS7Va5jA" value="1"/>
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_N4qucybSEeO_uddS7Va5jA" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_N4qucibSEeO_uddS7Va5jA" value="1"/>
     </ownedEnd>
     <ownedEnd xmi:id="_N4qudCbSEeO_uddS7Va5jA" name="usuario" type="_la_lwCbREeO_uddS7Va5jA" association="_N4qucCbSEeO_uddS7Va5jA">
-      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_N4qudSbSEeO_uddS7Va5jA" value="1"/>
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_N4qudibSEeO_uddS7Va5jA" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_N4qudSbSEeO_uddS7Va5jA" value="1"/>
     </ownedEnd>
   </packagedElement>
   <packagedElement xmi:type="uml:UseCase" xmi:id="_eseC0CbSEeO_uddS7Va5jA" name="CrarTrayecto">
     <include xmi:id="_gwQfgCbSEeO_uddS7Va5jA" addition="_DLrnUCbSEeO_uddS7Va5jA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_gzZboClaEeOj1bA31bCnoQ" name="registro sistema">
+    <include xmi:id="_iTc5IClaEeOj1bA31bCnoQ" addition="_9mjK0CbREeO_uddS7Va5jA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_ofQUEClaEeOj1bA31bCnoQ" name="CrearPuntoInteres">
+    <extend xmi:id="_p45nkClaEeOj1bA31bCnoQ" extendedCase="_HYBE4CbSEeO_uddS7Va5jA" extensionLocation="_p5CKcClaEeOj1bA31bCnoQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Actor" xmi:id="_tr9pgClaEeOj1bA31bCnoQ" name="Admin"/>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_vXPfkClaEeOj1bA31bCnoQ" name="Administrar sistema"/>
+  <packagedElement xmi:type="uml:Association" xmi:id="_wfp5IClaEeOj1bA31bCnoQ" name="A_usecase_admin" memberEnd="_wfp5ISlaEeOj1bA31bCnoQ _wfp5JClaEeOj1bA31bCnoQ">
+    <ownedEnd xmi:id="_wfp5ISlaEeOj1bA31bCnoQ" name="usecase" type="_vXPfkClaEeOj1bA31bCnoQ" association="_wfp5IClaEeOj1bA31bCnoQ">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_wfp5IilaEeOj1bA31bCnoQ" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_wfp5IylaEeOj1bA31bCnoQ" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_wfp5JClaEeOj1bA31bCnoQ" name="admin" type="_tr9pgClaEeOj1bA31bCnoQ" association="_wfp5IClaEeOj1bA31bCnoQ">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_wfp5JSlaEeOj1bA31bCnoQ" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_wfp5JilaEeOj1bA31bCnoQ" value="1"/>
+    </ownedEnd>
   </packagedElement>
 </uml:Model>
