@@ -1,4 +1,4 @@
 HOLA FAROLA
 
 
-Primera iteración del diario de viaje
+Primera iteración del diario de viajee
