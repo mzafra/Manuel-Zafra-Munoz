@@ -1,0 +1,13 @@
+Workflow de requisitos, 1ª iteración Diario de Viaje
+
+1. Encontrar actores y casos de uso:
+  - Encontrar actores y casos de uso
+  - Describirlos brevemente
+  - Describir el modelo de casos de uso completo
+  
+2. Detallar casos de uso:
+  - Estructurar la descripción
+    · Elegir el camino normal completo
+    · Describir caminos alternativos
+  - Qué incluir en el detalle
+  - Formalizar: mediante máquinas de estado, diagramas de actividad, diagramas de interacción
