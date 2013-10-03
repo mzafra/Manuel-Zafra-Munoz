@@ -9,7 +9,8 @@ Workflow de requisitos, 1ª iteración Diario de Viaje
   - Describirlos brevemente:
     · Registrar usuarios:el usuario debe introducir sus datos (nick, email, contraseña). 
       También puede registrarse en el sistema a través de su perfil en Facebook, Twitter o Google plus.
-    · Crear viaje:
+    · Crear viaje: el usuario pondrá un nombre al viaje y una breve descripción.
+  - Organizar casos de uso.
   - Describir el modelo de casos de uso completo
   
 2. Detallar casos de uso:
