@@ -3,8 +3,13 @@ Workflow de requisitos, 1ª iteración Diario de Viaje
 1. Encontrar actores y casos de uso:
   - Encontrar actores y casos de uso:
     · Actores: usuario anónimo, usuario registrado y administrador.
-    · Casos de uso: véase diagrama (casosDeUso).
-  - Describirlos brevemente
+    · Casos de uso: véase diagrama casosDeUso.jpg
+  - Priorizar:
+    · Registrar usuarios y crear viaje.
+  - Describirlos brevemente:
+    · Registrar usuarios:el usuario debe introducir sus datos (nick, email, contraseña). 
+      También puede registrarse en el sistema a través de su perfil en Facebook, Twitter o Google plus.
+    · Crear viaje:
   - Describir el modelo de casos de uso completo
   
 2. Detallar casos de uso:
