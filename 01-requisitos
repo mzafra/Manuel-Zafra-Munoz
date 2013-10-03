@@ -1,7 +1,9 @@
 Workflow de requisitos, 1ª iteración Diario de Viaje
 
 1. Encontrar actores y casos de uso:
-  - Encontrar actores y casos de uso
+  - Encontrar actores y casos de uso:
+    · Actores: usuario anónimo, usuario registrado y administrador.
+    · Casos de uso: véase diagrama (casosDeUso).
   - Describirlos brevemente
   - Describir el modelo de casos de uso completo
   
