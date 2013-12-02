@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Backbone.js Empleados Manager</title>
+        <link rel="stylesheet" href="css/bootstrap.css">
+    </head>
+    <body>
+
+    <script type="text/template" id="empleado-list-template">
+    <a href="#/new" class="btn btn-primary">Nuevo usuario</a>
+    <hr />
+    <table class="table striped">
+      <thead>
+        <tr>
+          <th>Nombre</th><th>Apellidos</th><th>Email</th><th>Clave</th><th>Foto</th><th>Contador</th><th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% _.each(empleados, function(empleado) { %>
+          <tr>
+            <td><%= empleado.get('nombre') %></td>
+            <td><%= empleado.get('apellidos') %></td>
+            <td><%= empleado.get('email') %></td>
+            <td><%= empleado.get('clave') %></td>
+            <td><%= empleado.get('img') %></td>
+            <td><%= empleado.get('reportCount') %></td>
+            <td><a href="#/edit/<%= empleado.get('_id') %>" class="btn">Edit</a></td>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  </script>
+
+  <script type="text/template" id="edit-empleado-template">
+    <form class="edit-empleado-form">
+        <legend><%= empleado ? 'Actualizar' : 'Crear' %> empleado</legend>
+        <label>Nombre</label>
+        <input name="nombre" type="text" value="<%= empleado ? empleado.get('nombre') : '' %>" /> 
+        <label>Apellidos</label>
+        <input name="apellidos" type="text" value="<%= empleado ? empleado.get('apellidos') : '' %>" /> 
+        <label>Email</label>
+        <input name="email" type="text" value="<%= empleado ? empleado.get('email') : '' %>" /> 
+        <label>Clave</label>
+        <input name="clave" type="text" value="<%= empleado ? empleado.get('clave') : '' %>" /> 
+        <label>Foto</label>
+        <input name="img" type="text" value="<%= empleado ? empleado.get('img') : '' %>" /> 
+        <label>Contador</label>
+        <input name="reportCount" type="text" value="<%= empleado ? empleado.get('reportCount') : '' %>" /> 
+        <hr />
+       <button type="submit" class="btn"><%= empleado ? 'Actualizar' : 'Crear' %> empleado</button>
+       <% if(empleado) { %>
+          <input type="hidden" name='id' value="<%= empleado.get('_id') %>" />
+          <button type="button" class="btn btn-danger delete">Eliminar</button>
+        <% }; %>
+    </form>
+  </script>
+
+   <div class="container">
+    <h1>Gestor de Empleados</h1>
+    <hr />
+    <div class="page"></div>
+  </div>
+
+        <script src="js/lib/jquery-min.js"></script>
+        <script src="js/lib/underscore-min.js"></script>
+        <script src="js/lib/backbone-min.js"></script>
+
+        <script type="text/javascript">
+          var EmpleadoMan ={
+            Models:{},
+            Collections:{},
+            Views:{},
+            Templates:{}
+          };
+
+        </script>
+        
+        <script src="js/models/empleado.js"></script>
+        <script src="js/collections/empleadoList.js"></script>        
+        <script src="js/views/empleadoListView.js"></script>
+        <script src="js/views/editEmpleadoView.js"></script>
+        
+        <script src="js/main.js"></script>
+        
+        </script>
+    </body>
+</html>

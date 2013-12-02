@@ -1,0 +1,12 @@
+h1 Tablero TriviadosPS
+if partida.jug1
+	p Jugador1 es #{partida.jug1}
+if partida.jug2
+	p Jugador2 es #{partida.jug2}
+br
+if partida.jug1.name !=""
+	h1 #{partida.jug1.name}'s Profile
+else
+	h1 #{partida.jug1.email}'s Profile
+
+a(href="/logout") Logout
