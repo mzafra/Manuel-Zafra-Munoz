@@ -1,6 +1,7 @@
 var jugador = function jugador(){
 	this.nombre="";
 	this.ficha= new ficha();
+	this.id = "";
 }
 
 function ficha(){

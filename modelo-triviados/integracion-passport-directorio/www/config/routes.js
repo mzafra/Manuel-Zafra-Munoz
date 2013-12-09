@@ -1,28 +1,20 @@
 var User = require('../app/models/user');
+var Pregunta = require('../app/models/pregunta');
 var Partida = require('../app/models/partida');
 var Tablero = require('../app/models/tablero');
 var Jugador = require('../app/models/jugador');
 
-var jug1 = new Jugador();
-jug1.nombre = "Pepito";
-var jug2 = new Jugador();
-jug2.nombre = "Gallud";
-
 var partida = new Partida();
-partida.tablero = new Tablero();
+var jug1 = new Jugador();
+jug1.id = "0";
+var jug2 = new Jugador();
+jug2.id = "0";
 partida.jugador1 = jug1;
 partida.jugador2 = jug2;
-
+partida.tablero = new Tablero();
 
 var Auth = require('./middlewares/authorization.js');
 var fs = require('fs');
-
-
-function asignarPartida(user){
-	
-
-
-};
 
 module.exports = function(app, passport){
 	app.get("/", function(req, res){ 
@@ -46,7 +38,7 @@ module.exports = function(app, passport){
 
 	app.post("/login" 
 		,passport.authenticate('local',{
-			successRedirect : "/",
+			successRedirect : "/ini",
 			failureRedirect : "/login",
 		})
 	);
@@ -87,6 +79,9 @@ module.exports = function(app, passport){
 	);
 
 	app.get("/ini",Auth.isAuthenticated,function(request,response){
+
+		partida.asignarPartida(request.user);
+
 		var contenido=fs.readFileSync("./index-modelo.html");
 		response.setHeader("Content-type","text/html");
 		response.send(contenido);
@@ -104,16 +99,43 @@ module.exports = function(app, passport){
 	    });
 	});
 
-	app.get('/partida', Auth.isAuthenticated, function( request, response ) {
-
-		response.render("tablero",{partida:partida});
-
+	app.get( '/preguntas', Auth.isAuthenticated, function( request, response ) {
+	    return Pregunta.find( function( err, preguntas ) {
+	        if( !err ) {
+	            //console.log(empleados);
+	            return response.send( preguntas );
+	        } else {
+	            return console.log( err );
+	        }
+	    });
 	});
 
+	app.post( '/preguntas', Auth.isAuthenticated, function( request, response ) {
+
+		var nueva =new Pregunta({
+			pregunta : request.body.pregunta,
+			color : request.body.color,
+			r1 : request.body.r1,
+			r2 : request.body.r2,
+			r3 : request.body.r3,
+			correcta : request.body.correcta
+		});
+		nueva.save(	function(err){
+			if(err) throw err;
+			// if (err) return done(err);
+			else return response.send(nueva);
+		});
+		});
 
 
 	app.get("/admin", Auth.isAuthenticated,function(request,response){
 	    var contenido=fs.readFileSync("./index-backbone.html");
+	    response.setHeader("Content-type","text/html");
+	    response.send(contenido);
+	});
+
+	app.get("/adminPreguntas", Auth.isAuthenticated,function(request,response){
+	    var contenido=fs.readFileSync("./index-pregunta.html");
 	    response.setHeader("Content-type","text/html");
 	    response.send(contenido);
 	});

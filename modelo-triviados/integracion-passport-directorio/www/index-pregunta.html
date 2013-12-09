@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Backbone.js Preguntas Manager</title>
+        <link rel="stylesheet" href="css/bootstrap.css">
+    </head>
+    <body>
+
+    <script type="text/template" id="pregunta-list-template">
+    <a href="#/new" class="btn btn-primary">Nuevo usuario</a>
+    <hr />
+    <table class="table striped">
+      <thead>
+        <tr>
+          <th>Pregunta</th><th>Color</th><th>Respuesta 1</th><th>Respuesta 2</th><th>Respuesta 3</th><th>Correcta</th><th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% _.each(preguntas, function(pregunta) { %>
+          <tr>
+            <td><%= pregunta.get('pregunta') %></td>
+            <td><%= pregunta.get('color') %></td>
+            <td><%= pregunta.get('r1') %></td>
+            <td><%= pregunta.get('r2') %></td>
+            <td><%= pregunta.get('r3') %></td>
+            <td><%= pregunta.get('correcta') %></td>
+            <td><a href="#/edit/<%= pregunta.get('_id') %>" class="btn">Edit</a></td>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  </script>
+
+  <script type="text/template" id="edit-pregunta-template">
+    <form class="edit-pregunta-form">
+        <legend><%= pregunta ? 'Actualizar' : 'Crear' %> pregunta</legend>
+        <label>Pregunta</label>
+        <input name="nombre" type="text" value="<%= pregunta ? pregunta.get('pregunta') : '' %>" /> 
+        <label>Color</label>
+        <input name="color" type="text" value="<%= pregunta ? pregunta.get('color') : '' %>" /> 
+        <label>Respuesta 1</label>
+        <input name="r1" type="text" value="<%= pregunta ? pregunta.get('r1') : '' %>" /> 
+        <label>Respuesta 2</label>
+        <input name="r2" type="text" value="<%= pregunta ? pregunta.get('r2') : '' %>" /> 
+        <label>Respuesta 3</label>
+        <input name="r3" type="text" value="<%= pregunta ? pregunta.get('r3') : '' %>" /> 
+        <label>Correcta</label>
+        <input name="correct" type="text" value="<%= pregunta ? pregunta.get('correcta') : '' %>" /> 
+        <hr />
+       <button type="submit" class="btn"><%= pregunta ? 'Actualizar' : 'Crear' %> pregunta</button>
+       <% if(pregunta) { %>
+          <input type="hidden" name='id' value="<%= pregunta.get('_id') %>" />
+          <button type="button" class="btn btn-danger delete">Eliminar</button>
+        <% }; %>
+    </form>
+  </script>
+
+   <div class="container">
+    <h1>Gestor de Preguntas</h1>
+    <hr />
+    <div class="page"></div>
+  </div>
+
+        <script src="js/lib/jquery-min.js"></script>
+        <script src="js/lib/underscore-min.js"></script>
+        <script src="js/lib/backbone-min.js"></script>
+
+        <script type="text/javascript">
+          var PreguntaMan ={
+            Models:{},
+            Collections:{},
+            Views:{},
+            Templates:{}
+          };
+
+        </script>
+        
+        <script src="js/models/pregunta.js"></script>
+        <script src="js/collections/preguntaList.js"></script>        
+        <script src="js/views/preguntaListView.js"></script>
+        <script src="js/views/editPreguntaView.js"></script>
+        
+        <script src="js/mainPreguntas.js"></script>
+        
+        </script>
+    </body>
+</html>

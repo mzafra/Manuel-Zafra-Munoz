@@ -1,0 +1,20 @@
+
+PreguntaMan.Router = Backbone.Router.extend({
+                      routes: {
+                        "": "default", 
+                        "new": "edit",
+                        "edit/:id":"edit"
+                      },
+                      default:function(){
+                        PreguntaMan.preguntas = new PreguntaMan.Collections.Preguntas();
+                        new PreguntaMan.Views.Preguntas({collection:PreguntaMan.preguntas});
+                        //UserMan.users.fetch();
+                        //console.log(UserMan.users);
+                      },
+                      edit:function(id){
+                        new PreguntaMan.Views.EditPreguntaView({numObj:id});
+                      }
+                  });
+
+var router = new PreguntaMan.Router();
+Backbone.history.start();
