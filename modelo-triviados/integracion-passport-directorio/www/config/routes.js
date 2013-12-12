@@ -122,11 +122,56 @@ module.exports = function(app, passport){
 		});
 		nueva.save(	function(err){
 			if(err) throw err;
-			// if (err) return done(err);
-			else return response.send(nueva);
+			// if (err) return done(err); 
 		});
+		return response.send(nueva);
 		});
 
+	app.get( '/preguntas/:id', Auth.isAuthenticated, function( request, response ) {
+    return Pregunta.findById( request.params.id, function( err, preguntas ) {
+        if( !err ) {
+            return response.send( preguntas );
+        } else {
+            return console.log( err );
+        }
+    });
+	});
+
+	app.put( '/preguntas/:id', Auth.isAuthenticated, function( request, response ) {
+    console.log( 'Actualizar Pregunta ' + request.body.pregunta );
+    return Pregunta.find( request.params.id, function( err, preguntas ) {
+        preguntas.pregunta = request.body.pregunta;
+        preguntas.color = request.body.color;
+        preguntas.r1 = request.body.r1;
+        preguntas.r2 = request.body.r2;
+        preguntas.r3 = request.body.r3;
+        preguntas.correcta = request.body.correcta;
+      
+        return preguntas.save( function( err ) {
+            if( !err ) {
+                console.log( 'pregunta actualizado' );
+            } else {
+                console.log( err );
+            }
+            return response.send( preguntas );
+        });
+    });
+	});
+
+	app.delete('/preguntas/:id', Auth.isAuthenticated, function( request, response ) {
+		console.log( 'Actualizar Pregunta ' + request.body.pregunta );
+    return Pregunta.findById( request.params.id, function( err, preguntas ){
+      
+        return preguntas.remove( function( err ) {
+            if( !err ) {
+                console.log( 'pregunta eliminada' );
+            } else {
+                console.log( err );
+            }
+            return response.send( preguntas );
+        });
+    });
+	});
 
 	app.get("/admin", Auth.isAuthenticated,function(request,response){
 	    var contenido=fs.readFileSync("./index-backbone.html");

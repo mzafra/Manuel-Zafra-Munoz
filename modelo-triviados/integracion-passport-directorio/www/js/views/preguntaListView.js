@@ -1,5 +1,5 @@
 
-PreguntaMan.Views.Preguntas = Backbone.View.extend({
+PreguntaMan.Views.preguntaListView = Backbone.View.extend({
     el:'.page',
     //template:UserMan.Templates.users,
     initialize: function () {

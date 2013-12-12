@@ -6,6 +6,8 @@ PreguntaSchema = mongoose.Schema({
 	r1:      String,
 	r2:       String,
 	r3:       String,
-	r4: 		String,
 	correcta: 	String,  
 });
+
+var Pregunta = mongoose.model("Pregunta", PreguntaSchema);
+module.exports = Pregunta;

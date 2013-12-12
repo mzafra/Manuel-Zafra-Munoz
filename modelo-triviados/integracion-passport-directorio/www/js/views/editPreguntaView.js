@@ -2,14 +2,15 @@ PreguntaMan.Views.EditPreguntaView = Backbone.View.extend({
       el:'.page', 
       initialize: function(options){      
         //_.bindAll(this, "render");
-        this.render(options.numObj);
+        //this.render(options.numObj);
       },
       render: function(id){
         //4-a para probar
-        //this.$el.html('Editar usuario-nuevo');        
+        //this.$el.html('Editar usuario-nuevo');      
+        console.log("id ",id);  
         var that=this;
         if (id){
-             //console.log("id ",id);
+            console.log("id ",id);
             that.Pregunta = new PreguntaMan.Models.Pregunta({id:id});
             that.Pregunta.fetch({
                 success:function (pregunta){
@@ -54,9 +55,9 @@ PreguntaMan.Views.EditPreguntaView = Backbone.View.extend({
             },
           deletePregunta:function(ev){
               //console.log(this.pregunta);
-              this.pregunta.destroy({
+              this.Pregunta.destroy({
                 success: function () {
-                   console.log('usuario eliminado');
+                   console.log('pregunta eliminado');
                    router.navigate('',{trigger:true}); 
                 }
               })

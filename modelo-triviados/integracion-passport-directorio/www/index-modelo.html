@@ -17,7 +17,10 @@
 
 	<div data-role="content">
          <ul id="part" data-role="listview" data-filter="true"></ul>
-    </div>		
+    </div>
+
+    <div id="datos"></div> 
+
 
 </div>
 <!--
@@ -27,6 +30,11 @@
 <script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
 <script src="http://code.jquery.com/mobile/1.2.1/jquery.mobile-1.2.1.min.js"></script>
 <script src="js/datos-juego.js"></script>
+
+<script> 
+	$('#datos').append('user1 = ' +partida.jugador1.id + ' nombre: ' +partida.jugador1.nombre);
+	$('#datos').append('user2 = ' +partida.jugador2.id + ' nombre: ' +partida.jugador2.nombre);
+</script>
 
 </body>
 
