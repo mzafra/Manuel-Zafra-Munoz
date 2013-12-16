@@ -137,6 +137,12 @@ module.exports = function(app, passport){
     });
 	});
 
+
+	app.get("/me",Auth.isAuthenticated,function(request,response){
+
+		response.send(request.user);
+	});
+
 	app.put( '/preguntas/:id', Auth.isAuthenticated, function( request, response ) {
     console.log( 'Actualizar Pregunta ' + request.body.pregunta );
     return Pregunta.find( request.params.id, function( err, preguntas ) {
