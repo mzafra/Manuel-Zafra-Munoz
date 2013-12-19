@@ -2,6 +2,7 @@ var jugador = function jugador(){
 	this.nombre="";
 	this.ficha= new ficha();
 	this.id = "";
+	this.posicion = 0;
 }
 
 function ficha(){
@@ -17,9 +18,8 @@ function quesito(color,conseguida){
 
 function dado(){
         this.tirarDado=function (){
-                //create a random integer between 0 and 5
                 return Math.round(Math.random()*5 +1)
-                //document.images["mydice"].src=eval("face"+randomdice+".src")
         }
 }
+
 module.exports = jugador;

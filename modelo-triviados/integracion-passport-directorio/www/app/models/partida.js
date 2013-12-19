@@ -14,11 +14,13 @@ this.asignarPartida = function(user){
 			this.jugador1.id = user._id;
 			this.jugador1.nombre = user.email;
 			this.turno = this.jugador1;
+			this.jugador1.posicion =  1;
 			console.log("Jugador asignado a la partida como jugador1");
 		}
 		else if(this.jugador1.id != "0" && this.jugador2.id == "0"){ 
 			this.jugador2.id = user._id;
 			this.jugador2.nombre = user.email;
+			this.jugador1.posicion = 29;
 			console.log("Jugador asignado a la partida como jugador2");
 		}
 		else if(this.jugador1.id != "0" && this.jugador2.id != "0") console.log("Partida completa");

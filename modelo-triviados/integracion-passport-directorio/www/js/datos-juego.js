@@ -1,6 +1,7 @@
 var serviceURL = "http://127.0.0.1:3000/";
 
 var partida;
+var tirada;
 var user;
 
 $('#partida').bind('pageinit', function(event) {
@@ -16,7 +17,12 @@ function getUser(){
 };
 
 function getPartida(){
+
+	
+
 	$.getJSON(serviceURL + 'datosJuego', function(data) {
+
+
 		$('#part li').remove();
 		partida = data;
 		console.log(data);
@@ -28,8 +34,17 @@ function getPartida(){
 	$('#datos').append(' |||||| Turno: ' + partida.partida.turno.nombre);
 	$('#tirar').on('click', function(){
 
+		tirada = dado();
+		$('#tirada').remove();
+		$('#posIz').remove();
+		$('#posDr').remove();
+
 		if(String(partida.partida.turno.id) == String(user._id)){
-			$('#tirada').append(' Tirada: ' + dado());
+
+			$('#datos').append('<div id="tirada">Tirada: '+tirada+'</div>');
+			$('#datos').append('<div id="posIz">Tirada Izquierda: '+posicionIzquierda(queJugadorSoy().posicion, tirada)+' Tipo Casilla: '++'</div>');
+			$('#datos').append('<div id="posDr">Tirada Derecha: '+posicionDerecha(queJugadorSoy().posicion, tirada)+'</div>');
+
 			
 		} else {console.log("No es tu turno dinosaurio");}
 		});
@@ -38,8 +53,25 @@ function getPartida(){
 	});
 };
 
+function posicionDerecha(posUsuario, tirada){
+
+		return (posUsuario - tirada)%49;
+}
+function posicionIzquierda(posUsuario, tirada){
+
+		return (posUsuario + tirada)%49;
+}
+
 
 function dado(){
        
-                return Math.round(Math.random()*5 +1)
+            return Math.round(Math.random()*5 +1)
         };
+
+function queJugadorSoy(){
+
+	if( String(partida.partida.jugador1.id) == String(user._id))
+		return partida.partida.jugador1;
+	else if ( String(partida.partida.jugador2.id) == String(user._id)) 
+		return partida.partida.jugador2;
+}
