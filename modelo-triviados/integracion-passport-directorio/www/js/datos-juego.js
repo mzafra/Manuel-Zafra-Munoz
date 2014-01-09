@@ -18,10 +18,7 @@ function getUser(){
 
 function getPartida(){
 
-	
-
 	$.getJSON(serviceURL + 'datosJuego', function(data) {
-
 
 		$('#part li').remove();
 		partida = data;
@@ -35,33 +32,39 @@ function getPartida(){
 	$('#tirar').on('click', function(){
 
 		tirada = dado();
+		
 		$('#tirada').remove();
 		$('#posIz').remove();
 		$('#posDr').remove();
+		$('#preDr').remove();
+		$('#preIz').remove();
 
 		if(String(partida.partida.turno.id) == String(user._id)){
 
-			$('#datos').append('<div id="tirada">Tirada: '+tirada+'</div>');
-			$('#datos').append('<div id="posIz">Tirada Izquierda: '+posicionIzquierda(queJugadorSoy().posicion, tirada)+' Tipo Casilla: '++'</div>');
-			$('#datos').append('<div id="posDr">Tirada Derecha: '+posicionDerecha(queJugadorSoy().posicion, tirada)+'</div>');
-
 			
+
+			$('#datos').append('<div id="tirada">Tirada: '+tirada+'</div>');
+			$('#datos').append('<div id="posIz">Tirada Izquierda: '+posicionIzquierda(queJugadorSoy().posicion, tirada)
+								+' Pregunta: '+tipoPregunta(posicionIzquierda(queJugadorSoy().posicion, tirada))+'</div>');
+			$('#datos').append('<div id="posDr">Tirada Derecha: '+posicionDerecha(queJugadorSoy().posicion, tirada)
+								+' Pregunta: '+tipoPregunta(posicionDerecha(queJugadorSoy().posicion, tirada))+'</div>');
+			$('#datos').append('<button id="preDr">'+tipoPregunta(posicionDerecha(queJugadorSoy().posicion, tirada))+'</button>');
+			$('#datos').append('<button id="preIz">'+tipoPregunta(posicionIzquierda(queJugadorSoy().posicion, tirada))+'</button>');
+
+
 		} else {console.log("No es tu turno dinosaurio");}
 		});
-
-
 	});
 };
 
 function posicionDerecha(posUsuario, tirada){
 
-		return (posUsuario - tirada)%49;
+		return 49 + (posUsuario-(tirada%49));
 }
 function posicionIzquierda(posUsuario, tirada){
 
-		return (posUsuario + tirada)%49;
+		return posUsuario+tirada%49;
 }
-
 
 function dado(){
        
@@ -74,4 +77,9 @@ function queJugadorSoy(){
 		return partida.partida.jugador1;
 	else if ( String(partida.partida.jugador2.id) == String(user._id)) 
 		return partida.partida.jugador2;
+}
+
+function tipoPregunta(casilla){
+
+	return partida.partida.tablero.tablero[casilla].color;
 }

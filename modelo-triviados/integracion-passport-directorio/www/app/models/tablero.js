@@ -33,7 +33,7 @@ var tablero = function tablero(){
 			col[posRosa[i]].color="rosa";
 		}
 		for(i in posGris){
-			col[posGris[i]].color="gris";
+			col[posGris[i]].color="gris-volver a tirar";
 			col[posGris[i]].tipo="T";
 		}
 		for(i in posMarron){

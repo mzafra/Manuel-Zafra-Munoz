@@ -2,7 +2,6 @@ var jugador = function jugador(){
 	this.nombre="";
 	this.ficha= new ficha();
 	this.id = "";
-	this.posicion = 0;
 }
 
 function ficha(){
@@ -14,12 +13,6 @@ function ficha(){
 function quesito(color,conseguida){
 	this.color=color;
 	this.conseguida=conseguida;
-}
-
-function dado(){
-        this.tirarDado=function (){
-                return Math.round(Math.random()*5 +1)
-        }
 }
 
 module.exports = jugador;
